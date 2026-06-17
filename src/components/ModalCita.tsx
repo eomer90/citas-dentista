@@ -153,19 +153,20 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
             <option value="Metepec">Sucursal Metepec</option>
             <option value="Zinacantepec">Sucursal Zinacantepec</option>
           </select>
-          <div className="datepicker-container">
-            <DatePicker
-              selected={fecha}
-              onChange={(date: Date | null) => setFecha(date)}
-              filterDate={esFechaValida}
-              minDate={new Date()}
-              placeholderText="Selecciona una fecha"
-              dateFormat="dd/MM/yyyy"
-              className="datepicker"
-            />
-
-            <FaCalendarAlt className="datepicker-icon" />
-          </div>
+          {sucursal && (
+            <div className="datepicker-container">
+              <DatePicker
+                selected={fecha}
+                onChange={(date: Date | null) => setFecha(date)}
+                filterDate={esFechaValida}
+                minDate={new Date()}
+                placeholderText="Selecciona una fecha"
+                dateFormat="dd/MM/yyyy"
+                className="datepicker"
+              />
+              <FaCalendarAlt className="datepicker-icon" />
+            </div>
+          )}
           {fecha && (
             <>
               <h3>Selecciona un horario</h3>
