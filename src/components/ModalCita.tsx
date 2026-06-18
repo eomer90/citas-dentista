@@ -98,14 +98,14 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
       return;
     }
     try {
-      await api.post("/citas", {
+      const res = await api.post("/citas", {
         nombre,
         telefono,
         sucursal,
         fecha: fechaFormateada,
         horario,
       });
-      alert("Cita agendada correctamente");
+      alert(res.data.mensaje);
       limpiarFormulario();
       cerrarModal();
     } catch (error: any) {

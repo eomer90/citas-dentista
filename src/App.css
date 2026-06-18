@@ -238,7 +238,8 @@ html {
 .basic-layout {
   display: flex;
   width: 100%;
-  min-height: 650px;
+  height: 700px;
+ 
 }
 
 .basic-info {

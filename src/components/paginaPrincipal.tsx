@@ -122,7 +122,7 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
         <div className="redes-sociales">
           <span className="menu-item2">Búscanos en</span>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/people/cl%C3%ADnica-Max-Dent/61578946617932/?mibextid=wwXIfr&rdid=Ar69nAzpZ00DQssM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CbVdrqGAm%2F%3Fmibextid%3DwwXIfr"
             target="_blank"
             rel="noreferrer"
             className="facebook-link"
@@ -130,7 +130,7 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
             <FaFacebookF />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/maxdent_1/"
             target="_blank"
             rel="noreferrer"
             className="instagram-link"
