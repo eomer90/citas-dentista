@@ -4,8 +4,8 @@ import {
   FaFacebookF,
   FaCheckCircle,
   FaClinicMedical,
-  FaBullseye,
-  FaHandshake,
+  // FaBullseye,
+  // FaHandshake,
   FaMapMarkerAlt,
   FaUserMd,
   FaBars,
@@ -18,7 +18,7 @@ interface PaginaPrincipalProps {
 
 function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
   const [sucursalActual, setSucursalActual] = useState(0);
-  const [infoActual, setInfoActual] = useState(0);
+  // const [infoActual, setInfoActual] = useState(0);
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const informacion = [
@@ -29,6 +29,7 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
       parrafos: [
         "Una clinica que ofrece servicios de odontología integral, y de especialidad como es ortodoncia, endodoncia, implantologia, cirugia,estetica dental y armonización facial.",
         "En nuestra clínica trabajamos con odontología digital de vanguardia, utilizando tecnología como el escáner intraoral 3Shape®, radiovisografo y radiografia digital para ofrecer diagnósticos y restauraciones con mayor precisión, comodidad y calidad. Implementamos un flujo digital que nos permite emplear materiales de excelencia y obtener resultados más predecibles para nuestros pacientes. Además, nos mantenemos en constante actualización profesional para brindar tratamientos basados en los avances más recientes de la odontología asi como el adecuado seguimiento y educacion al paciente.",
+        "Nuestros servicios y tratamientos son amplios gracias a que contamos con un equipo sólido de especialistas comprometidos con la salud de nuestros pacientes.",
       ],
     },
     // {
@@ -229,12 +230,10 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
         <div className="basic-layout">
           <div className="basic-info">
             <h2>
-              <span className="titulo-icono">
-                {informacion[infoActual].icono}
-              </span>
-              {informacion[infoActual].titulo}
+              <span className="titulo-icono">{informacion[0].icono}</span>
+              {informacion[0].titulo}
             </h2>
-            {informacion[infoActual].parrafos.map((parrafo, index) => (
+            {informacion[0].parrafos.map((parrafo, index) => (
               <p key={index}>{parrafo}</p>
             ))}
             {/* <button
@@ -248,8 +247,8 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
           </div>
           <div className="imagen-container">
             <img
-              src={informacion[infoActual].imagen}
-              alt={informacion[infoActual].titulo}
+              src={informacion[0].imagen}
+              alt={informacion[0].titulo}
               className="imagen"
             />
           </div>
