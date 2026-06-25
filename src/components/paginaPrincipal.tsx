@@ -29,7 +29,6 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
       parrafos: [
         "Una clinica que ofrece servicios de odontología integral, y de especialidad como es ortodoncia, endodoncia, implantologia, cirugia,estetica dental y armonización facial.",
         "En nuestra clínica trabajamos con odontología digital de vanguardia, utilizando tecnología como el escáner intraoral 3Shape®, radiovisografo y radiografia digital para ofrecer diagnósticos y restauraciones con mayor precisión, comodidad y calidad. Implementamos un flujo digital que nos permite emplear materiales de excelencia y obtener resultados más predecibles para nuestros pacientes. Además, nos mantenemos en constante actualización profesional para brindar tratamientos basados en los avances más recientes de la odontología asi como el adecuado seguimiento y educacion al paciente.",
-        "Nuestros servicios y tratamientos son amplios gracias a que contamos con un equipo sólido de especialistas comprometidos con la salud de nuestros pacientes.",
       ],
     },
     {
