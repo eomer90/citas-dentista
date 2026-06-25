@@ -31,26 +31,26 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
         "En nuestra clínica trabajamos con odontología digital de vanguardia, utilizando tecnología como el escáner intraoral 3Shape®, radiovisografo y radiografia digital para ofrecer diagnósticos y restauraciones con mayor precisión, comodidad y calidad. Implementamos un flujo digital que nos permite emplear materiales de excelencia y obtener resultados más predecibles para nuestros pacientes. Además, nos mantenemos en constante actualización profesional para brindar tratamientos basados en los avances más recientes de la odontología asi como el adecuado seguimiento y educacion al paciente.",
       ],
     },
-    {
-      titulo: "Visión y Misión",
-      icono: <FaBullseye />,
-      imagen: "/conocenos.jpeg",
-      parrafos: [
-        "Ser reconocidos  como una de las principales clinicas con presencia en Zinacantepec, Toluca y Metepec; líder en innovación y excelencia, comprometida con la educación en salud bucal y con la satisfacción total de nuestros pacientes, convirtiéndonos en un referente de confianza y cuidado dental en nuestra comunidad.",
-        "Brindar servicios odontológicos de alta calidad, con atención personalizada, promoviendo la salud bucal y el bienestar integral de nuestros pacientes en un ambiente seguro y humano.",
-      ],
-    },
-    {
-      titulo: "Valores",
-      icono: <FaHandshake />,
-      imagen: "/conocenos.jpeg",
-      parrafos: [
-        "Empatía: Atendemos a cada paciente con sensibilidad y comprension, escuchando sus necesidades para ofrecere una atencion calida y personalizada.",
-        "Disciplina: Trabajamos con orden, constancia y dedicacion para garantizar tratamientos de calidad y cumplir con los mas altos estandares profesionales.",
-        "Honestidad: Actuamos con transparencia y claridad, brindando diagnosticos y tratamientos justos, siempre pensando en el bienestar real del paciente.",
-        "Compañerismo: Fomentamos un ambiente de respeto, apoyo y colaboracion entre todo el equipo, para ofrecer una experiancia confiable y cercana.",
-      ],
-    },
+    // {
+    //   titulo: "Visión y Misión",
+    //   icono: <FaBullseye />,
+    //   imagen: "/conocenos.jpeg",
+    //   parrafos: [
+    //     "Ser reconocidos  como una de las principales clinicas con presencia en Zinacantepec, Toluca y Metepec; líder en innovación y excelencia, comprometida con la educación en salud bucal y con la satisfacción total de nuestros pacientes, convirtiéndonos en un referente de confianza y cuidado dental en nuestra comunidad.",
+    //     "Brindar servicios odontológicos de alta calidad, con atención personalizada, promoviendo la salud bucal y el bienestar integral de nuestros pacientes en un ambiente seguro y humano.",
+    //   ],
+    // },
+    // {
+    //   titulo: "Valores",
+    //   icono: <FaHandshake />,
+    //   imagen: "/conocenos.jpeg",
+    //   parrafos: [
+    //     "Empatía: Atendemos a cada paciente con sensibilidad y comprension, escuchando sus necesidades para ofrecere una atencion calida y personalizada.",
+    //     "Disciplina: Trabajamos con orden, constancia y dedicacion para garantizar tratamientos de calidad y cumplir con los mas altos estandares profesionales.",
+    //     "Honestidad: Actuamos con transparencia y claridad, brindando diagnosticos y tratamientos justos, siempre pensando en el bienestar real del paciente.",
+    //     "Compañerismo: Fomentamos un ambiente de respeto, apoyo y colaboracion entre todo el equipo, para ofrecer una experiancia confiable y cercana.",
+    //   ],
+    // },
   ];
 
   const especialistas = [
@@ -237,6 +237,14 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
             {informacion[infoActual].parrafos.map((parrafo, index) => (
               <p key={index}>{parrafo}</p>
             ))}
+            {/* <button
+              className="flecha"
+              onClick={() =>
+                setInfoActual((infoActual + 1) % informacion.length)
+              }
+            >
+              ❯
+            </button> */}
           </div>
           <div className="imagen-container">
             <img
@@ -244,14 +252,6 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
               alt={informacion[infoActual].titulo}
               className="imagen"
             />
-            <button
-              className="flecha"
-              onClick={() =>
-                setInfoActual((infoActual + 1) % informacion.length)
-              }
-            >
-              ❯
-            </button>
           </div>
         </div>
       </section>
