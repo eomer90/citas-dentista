@@ -150,6 +150,14 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
             Especialistas
           </a>
 
+          <a
+            href="#agendar-cita"
+            className="menu-item"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Agenda una cita
+          </a>
+
           <div className="redes-sociales">
             <span className="menu-item2">Búscanos en</span>
 
@@ -190,7 +198,7 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
           </h1>
           <h2>Estética Dental y Facial</h2>
 
-          <p>Somos especialistas en:</p>
+          <p id="agendar-cita">Somos especialistas en:</p>
           <ul className="lista-servicios">
             <li>
               <FaCheckCircle /> Odontología integral
