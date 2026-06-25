@@ -8,6 +8,8 @@ import {
   FaHandshake,
   FaMapMarkerAlt,
   FaUserMd,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 
 interface PaginaPrincipalProps {
@@ -17,6 +19,7 @@ interface PaginaPrincipalProps {
 function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
   const [sucursalActual, setSucursalActual] = useState(0);
   const [infoActual, setInfoActual] = useState(0);
+  const [menuAbierto, setMenuAbierto] = useState(false);
 
   const informacion = [
     {
@@ -106,37 +109,68 @@ function PaginaPrincipal({ abrirModal }: PaginaPrincipalProps) {
     <div>
       <nav className="menu-principal">
         <img src="/logo1.5.jpeg" alt="Logo Max Dent" className="logo" />
-        <a href="#inicio" className="menu-item">
-          Inicio
-        </a>
-        <a href="#conocenos" className="menu-item">
-          Conócenos
-        </a>
-        <a href="#sucursales" className="menu-item">
-          Sucursales
-        </a>
-        <a href="#especialistas" className="menu-item">
-          Especialistas
-        </a>
 
-        <div className="redes-sociales">
-          <span className="menu-item2">Búscanos en</span>
+        <button
+          className="menu-hamburguesa"
+          onClick={() => setMenuAbierto(!menuAbierto)}
+        >
+          {menuAbierto ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <div className={`menu-links ${menuAbierto ? "activo" : ""}`}>
           <a
-            href="https://www.facebook.com/people/cl%C3%ADnica-Max-Dent/61578946617932/?mibextid=wwXIfr&rdid=Ar69nAzpZ00DQssM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CbVdrqGAm%2F%3Fmibextid%3DwwXIfr"
-            target="_blank"
-            rel="noreferrer"
-            className="facebook-link"
+            href="#inicio"
+            className="menu-item"
+            onClick={() => setMenuAbierto(false)}
           >
-            <FaFacebookF />
+            Inicio
           </a>
+
           <a
-            href="https://www.instagram.com/maxdent_1/"
-            target="_blank"
-            rel="noreferrer"
-            className="instagram-link"
+            href="#conocenos"
+            className="menu-item"
+            onClick={() => setMenuAbierto(false)}
           >
-            <FaInstagram />
+            Conócenos
           </a>
+
+          <a
+            href="#sucursales"
+            className="menu-item"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Sucursales
+          </a>
+
+          <a
+            href="#especialistas"
+            className="menu-item"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Especialistas
+          </a>
+
+          <div className="redes-sociales">
+            <span className="menu-item2">Búscanos en</span>
+
+            <a
+              href="https://www.facebook.com/people/cl%C3%ADnica-Max-Dent/61578946617932/?mibextid=wwXIfr&rdid=Ar69nAzpZ00DQssM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CbVdrqGAm%2F%3Fmibextid%3DwwXIfr"
+              target="_blank"
+              rel="noreferrer"
+              className="facebook-link"
+            >
+              <FaFacebookF />
+            </a>
+
+            <a
+              href="https://www.instagram.com/maxdent_1/"
+              target="_blank"
+              rel="noreferrer"
+              className="instagram-link"
+            >
+              <FaInstagram />
+            </a>
+          </div>
         </div>
       </nav>
 

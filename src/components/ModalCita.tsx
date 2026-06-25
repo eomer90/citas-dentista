@@ -16,6 +16,8 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
   const [sucursal, setSucursal] = useState("");
   const [fecha, setFecha] = useState<Date | null>(null);
   const [horario, setHorario] = useState("");
+  const [enviando, setEnviando] = useState(false);
+  const [cargandoHorarios, setCargandoHorarios] = useState(false);
 
   const horarios = [
     "10:00",
@@ -85,19 +87,30 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
 
   const cargarHorarios = async () => {
     try {
+      setCargandoHorarios(true);
+      setHorariosOcupados([]); // limpia mientras carga
+
       const res = await api.get(`/citas/${fechaFormateada}/${sucursal}`);
+
       setHorariosOcupados(res.data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setCargandoHorarios(false);
     }
   };
 
   const agendarCita = async () => {
+    if (enviando) return;
+
     if (!horario) {
       alert("Selecciona un horario");
       return;
     }
+
     try {
+      setEnviando(true);
+
       const res = await api.post("/citas", {
         nombre,
         telefono,
@@ -110,13 +123,15 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
       cerrarModal();
     } catch (error: any) {
       alert(error.response?.data?.mensaje || "Error al registrar cita");
+    } finally {
+      setEnviando(false);
     }
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <button className="cerrar-modal" onClick={cerrar}>
+        <button className="cerrar-modal" onClick={cerrar} disabled={enviando}>
           ✕
         </button>
         <form
@@ -171,29 +186,43 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
             <>
               <h3>Selecciona un horario</h3>
 
-              <div className="horarios">
-                {horarios.map((hora) => {
-                  const deshabilitado = estaDeshabilitado(hora);
+              {cargandoHorarios ? (
+                <div className="spinner-container">
+                  <div className="spinner"></div>
+                  <p>Cargando horarios...</p>
+                </div>
+              ) : (
+                <div className="horarios">
+                  {horarios.map((hora) => {
+                    const deshabilitado = estaDeshabilitado(hora);
 
-                  return (
-                    <button
-                      type="button"
-                      key={hora}
-                      disabled={deshabilitado}
-                      className={`horario-card
-        ${horario === hora ? "horario-seleccionado" : ""}
-        ${deshabilitado ? "horario-ocupado" : ""}`}
-                      onClick={() => setHorario(hora)}
-                    >
-                      {hora}
-                    </button>
-                  );
-                })}
-              </div>
+                    return (
+                      <button
+                        type="button"
+                        key={hora}
+                        disabled={deshabilitado}
+                        className={`horario-card
+                ${horario === hora ? "horario-seleccionado" : ""}
+                ${deshabilitado ? "horario-ocupado" : ""}`}
+                        onClick={() => setHorario(hora)}
+                      >
+                        {hora}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </>
           )}
-          <button type="submit" className="btn-whatsapp">
-            Agendar
+          <button type="submit" className="btn-whatsapp" disabled={enviando}>
+            {enviando ? (
+              <>
+                <span className="spinnerAgendar"></span>
+                Agendando...
+              </>
+            ) : (
+              "Agendar"
+            )}
           </button>
         </form>
       </div>
