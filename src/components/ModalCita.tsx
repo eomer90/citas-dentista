@@ -88,7 +88,7 @@ function ModalCita({ abierto, cerrarModal }: ModalCitaProps) {
   const cargarHorarios = async () => {
     try {
       setCargandoHorarios(true);
-      setHorariosOcupados([]); // limpia mientras carga
+      setHorariosOcupados([]);
 
       const res = await api.get(`/citas/${fechaFormateada}/${sucursal}`);
 
